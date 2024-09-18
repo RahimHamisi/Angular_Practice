@@ -1,0 +1,58 @@
+
+<div class="container mt-5">
+  <h1 class="mb-4">Posts</h1>
+
+  <!-- Form to Add a New Post -->
+  <form (ngSubmit)="addPost()" class="mb-5">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" id="title" [(ngModel)]="newPost.title" name="title" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="content" class="form-label">Content</label>
+      <textarea id="content" [(ngModel)]="newPost.content" name="content" class="form-control" required></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="url" class="form-label">URL</label>
+      <input type="url" id="url" [(ngModel)]="newPost.url" name="url" class="form-control" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Post</button>
+  </form>
+
+  <hr>
+
+  <!-- Display Posts in a Table -->
+  <div class="container mt-3">
+    <h2>Posts</h2>
+    <p>The .table-bordered class adds borders on all sides of the table and the cells:</p>
+
+    <!-- Display Posts in a Table -->
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Content</th>
+          <th>Status</th>
+          <th>Category</th>
+          <th>Published At</th>
+          <th>Updated At</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let post of posts">
+          <td>{{ post.id }}</td>
+          <td>{{ post.title }}</td>
+          <td>{{ post.content }}</td>
+          <td>{{ post.status }}</td>
+          <td>{{ post.category }}</td>
+          <td>{{ post.publishedAt }}</td>
+          <td>{{ post.updatedAt }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+

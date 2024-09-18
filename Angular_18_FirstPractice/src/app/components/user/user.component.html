@@ -1,0 +1,121 @@
+
+<div class="container mt-5">
+  <h1 class="mb-4">Users</h1>
+
+  <!-- Form to Add a New User -->
+  <form (ngSubmit)="addUser()" class="mb-5">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="firstname" class="form-label">First Name</label>
+          <input type="text" id="firstname" [(ngModel)]="newUser.firstname" name="firstname" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="lastname" class="form-label">Last Name</label>
+          <input type="text" id="lastname" [(ngModel)]="newUser.lastname" name="lastname" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" id="email" [(ngModel)]="newUser.email" name="email" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" id="username" [(ngModel)]="newUser.username" name="username" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="birthDate" class="form-label">Birth Date</label>
+          <input type="date" id="birthDate" [(ngModel)]="newUser.birthDate" name="birthDate" class="form-control">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="street" class="form-label">Street</label>
+          <input type="text" id="street" [(ngModel)]="newUser.street" name="street" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="suite" class="form-label">Suite</label>
+          <input type="text" id="suite" [(ngModel)]="newUser.suite" name="suite" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="city" class="form-label">City</label>
+          <input type="text" id="city" [(ngModel)]="newUser.city" name="city" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="zipcode" class="form-label">Zip Code</label>
+          <input type="text" id="zipcode" [(ngModel)]="newUser.zipcode" name="zipcode" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="phone" class="form-label">Phone</label>
+          <input type="text" id="phone" [(ngModel)]="newUser.phone" name="phone" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="website" class="form-label">Website</label>
+          <input type="url" id="website" [(ngModel)]="newUser.website" name="website" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="companyName" class="form-label">Company Name</label>
+          <input type="text" id="companyName" [(ngModel)]="newUser.companyName" name="companyName" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="companyCatchPhrase" class="form-label">Company Catch Phrase</label>
+          <input type="text" id="companyCatchPhrase" [(ngModel)]="newUser.companyCatchPhrase" name="companyCatchPhrase" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="companyBs" class="form-label">Company BS</label>
+          <input type="text" id="companyBs" [(ngModel)]="newUser.companyBs" name="companyBs" class="form-control">
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Add User</button>
+  </form>
+
+  <hr>
+
+  <!-- Display Users in a Table -->
+  <div class="container mt-3">
+    <h2>Users</h2>
+    <p>The .table-bordered class adds borders on all sides of the table and the cells:</p>
+
+    <!-- Display Users in a Table -->
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Username</th>
+          <th>Birth Date</th>
+          <th>Street</th>
+          <th>Suite</th>
+          <th>City</th>
+          <th>Zip Code</th>
+          <th>Phone</th>
+          <th>Website</th>
+          <th>Company Name</th>
+          <th>Company Catch Phrase</th>
+          <th>Company BS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.id }}</td>
+          <td>{{ user.firstname }}</td>
+          <td>{{ user.lastname }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.login.username }}</td>
+          <td>{{ user.birthDate }}</td>
+          <td>{{ user.address.street }}</td>
+          <td>{{ user.address.suite }}</td>
+          <td>{{ user.address.city }}</td>
+          <td>{{ user.address.zipcode }}</td>
+          <td>{{ user.phone }}</td>
+          <td>{{ user.website }}</td>
+          <td>{{ user.company.name }}</td>
+          <td>{{ user.company.catchPhrase }}</td>
+          <td>{{ user.company.bs }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
